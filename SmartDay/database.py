@@ -7,8 +7,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config import DATABASE_URL
 
-# SQLAlchemy 엔진 생성
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+# SQLAlchemy 엔진 생성 (SQLite일 경우 스레드 체크 비활성화)
+engine_args = {}
+if DATABASE_URL.startswith("sqlite"):
+    engine_args["connect_args"] = {"check_same_thread": False}
+
+engine = create_engine(DATABASE_URL, pool_pre_ping=True, **engine_args)
 
 # 데이터베이스 세션 생성을 위한 SessionLocal 클래스
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

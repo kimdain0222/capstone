@@ -37,7 +37,7 @@ TAVILY_API_KEY=your-tavily-api-key
 
 ### 1.3 배포 설정
 
-- **Build Command**: `pip install -r SmartDay/requirements.txt`
+- **Build Command**: `pip install -r requirements.txt`
 - **Start Command**: `uvicorn SmartDay.main:app --host 0.0.0.0 --port $PORT`
 - **Root Directory**: `SmartDay/`
 
