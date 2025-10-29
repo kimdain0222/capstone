@@ -1,0 +1,16 @@
+:root {
+    --tw-bg-primary: #87CEEB;
+    --tw-bg-secondary: #f0f9ff;
+    --tw-text-primary: #1f2937;
+    --tw-text-secondary: #6b7280;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--tw-bg-secondary);
+    color: var(--tw-text-primary);
+}
+
+.font-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}

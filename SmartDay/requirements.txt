@@ -1,0 +1,27 @@
+# FastAPI & 관련 도구
+fastapi[all]
+uvicorn[standard]
+python-multipart
+
+# 데이터베이스
+sqlalchemy
+pytz
+
+# 인증 및 보안
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt
+
+# 데이터 유효성 검사 (Schemas)
+pydantic
+pydantic-settings
+
+# API 통신 (HTTP 요청)
+requests
+httpx  # 비동기 HTTP 통신을 위한 라이브러리 (카카오 API 연동)
+
+# OpenAI API
+openai
+python-dotenv
+tiktoken
+

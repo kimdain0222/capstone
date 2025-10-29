@@ -1,0 +1,20 @@
+body { 
+    font-family: 'Noto Sans KR', sans-serif; 
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.alert-success { 
+    background-color: #d1fae5; 
+    color: #065f46; 
+}
+
+.alert-error { 
+    background-color: #fee2e2; 
+    color: #991b1b; 
+}

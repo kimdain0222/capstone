@@ -1,0 +1,73 @@
+:root { 
+    --primary-color: #4A90E2; 
+}
+
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    padding: 0; 
+    background-color: transparent; 
+}
+
+body { 
+    font-family: 'Noto Sans KR', sans-serif; 
+}
+
+.calendar-grid { 
+    display: grid; 
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 4px;
+}
+
+.day-cell-wrapper {
+    position: relative;
+    padding-bottom: 100%; /* 1:1 비율 유지를 위함 */
+}
+
+.day-cell {
+    position: absolute;
+    inset: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 50%;
+}
+
+.day-cell.today { 
+    background-color: #f0f9ff; 
+    border: 1px solid var(--primary-color); 
+}
+
+.day-cell.selected { 
+    background-color: var(--primary-color); 
+    color: white; 
+    font-weight: bold; 
+}
+
+/* 팝업(모달) 스타일 */
+.modal-overlay { 
+    position: fixed; 
+    inset: 0; 
+    background-color: rgba(0,0,0,0.5); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 50; 
+}
+
+.modal-container { 
+    background-color: white; 
+    border-radius: 0.75rem; 
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); 
+    width: 90%; 
+    max-width: 400px; 
+    max-height: 90vh; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.modal-overlay.hidden { 
+    display: none !important;
+}
