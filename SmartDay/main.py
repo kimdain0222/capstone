@@ -3,7 +3,8 @@ FastAPI 애플리케이션의 메인 진입점입니다.
 라우터를 포함하고, 정적 파일 및 템플릿을 설정합니다.
 """
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
