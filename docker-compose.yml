@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # SmartDay 메인 애플리케이션
+  smartday:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/smartday
+      - SECRET_KEY=your-secret-key-here
+      - OPENAI_API_KEY=your-openai-api-key
+      - TAVILY_API_KEY=your-tavily-api-key
+    depends_on:
+      - db
+    volumes:
+      - ./SmartDay:/app
+    restart: unless-stopped
+
+  # PostgreSQL 데이터베이스
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=smartday
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  # 백엔드 API (선택사항)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/smartday
+      - SECRET_KEY=your-secret-key-here
+      - OPENAI_API_KEY=your-openai-api-key
+      - TAVILY_API_KEY=your-tavily-api-key
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  # 프론트엔드 (선택사항)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=your-openai-api-key
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

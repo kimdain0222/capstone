@@ -1,0 +1,28 @@
+[build]
+  # 빌드 명령어 (프론트엔드용)
+  command = "echo 'Static site build completed'"
+  
+  # 빌드 결과물 디렉토리
+  publish = "dist"
+  
+  # 환경변수
+  [build.environment]
+    PYTHON_VERSION = "3.11"
+
+# 리다이렉트 설정
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# 헤더 설정
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+# 서버리스 함수 설정
+[functions]
+  directory = "netlify/functions"

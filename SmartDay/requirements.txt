@@ -1,27 +1,43 @@
 # FastAPI & 관련 도구
-fastapi[all]
-uvicorn[standard]
-python-multipart
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+starlette==0.27.0
 
 # 데이터베이스
-sqlalchemy
-pytz
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+pytz==2025.2
 
 # 인증 및 보안
-python-jose[cryptography]
-passlib[bcrypt]
-bcrypt
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.3.0
 
 # 데이터 유효성 검사 (Schemas)
-pydantic
-pydantic-settings
+pydantic==2.11.7
+pydantic-settings==2.10.1
+pydantic_core==2.33.2
 
 # API 통신 (HTTP 요청)
-requests
-httpx  # 비동기 HTTP 통신을 위한 라이브러리 (카카오 API 연동)
+requests==2.32.4
+httpx==0.28.1
+httpcore==1.0.9
 
 # OpenAI API
-openai
-python-dotenv
-tiktoken
+openai==1.97.1
+python-dotenv==1.0.0
+tiktoken==0.9.0
 
+# 템플릿 엔진
+jinja2==3.1.2
+markupsafe==3.0.2
+
+# 날짜/시간 처리
+python-dateutil==2.9.0.post0
+
+# 환경변수 및 설정
+python-dotenv==1.0.0
+
+# CORS 미들웨어
+fastapi[all]==0.104.1
